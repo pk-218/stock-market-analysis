@@ -13,7 +13,7 @@ plot(WIPRO_Close_Prices)
 Acf(WIPRO_Close_Prices, main='ACF for Differenced Series')
 Pacf(WIPRO_Close_Prices, main='PACF for Differenced Series')
 
-fit = auto.arima(WIPRO_Close_Prices, seasonal=FALSE)
+fit = arima(WIPRO_Close_Prices, order=c(1,2,4))
 tsdisplay(residuals(fit), lag.max=40)
 
 fcast <- forecast(fit, h=100)
